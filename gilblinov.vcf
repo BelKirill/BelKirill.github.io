@@ -1,0 +1,21 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Blinov;Gil;;;
+FN:Gil Blinov
+ORG:
+ADR;TYPE=WORK:
+TITLE:Multi-disciplined DevOps Evangelist
+TEL;TYPE=CELL:+972544493186
+TEL;TYPE=WORK:
+TEL;TYPE=HOME:
+TEL;TYPE=MSG:
+EMAIL;TYPE=WORK:gil.blinov@gmail.com
+URL;TYPE=Digital Business Card:contact.gilblinov.com
+URL:www.gilblinov.com
+URL;TYPE=Website:www.gilblinov.com
+URL;TYPE=GitHub:https://github.com/BelKirill
+URL;TYPE=LinkedIn:https://linkedin.com/in/gil.blinov
+KEY;TYPE=PGP;ENCODING=b:
+NOTE:
+UID:EnBizCard-100393960
+END:VCARD
