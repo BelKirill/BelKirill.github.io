@@ -3,6 +3,8 @@ languageCode = "en-us"
 title = "Industrial Strength DevOps"
 theme = "hugo-theme-m10c"
 
+googleAnalytics = "G-Q957J4XNNH"
+
 [params]
   author = "Gil Blinov"
   description = "An engineer's journey in an ever changing world"
