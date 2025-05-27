@@ -19,6 +19,11 @@ theme = "hugo-theme-m10c"
   name = "Dev.to"
   url  = "https://dev.to/gilblinov"
 
+[[params.social]]
+  icon = "brand-linkedin"
+  name = "LinkedIn"
+  url  = "https://www.linkedin.com/in/gilblinov"
+
 # Sidebar menu items
 [[menu.main]]
   identifier = "home"
