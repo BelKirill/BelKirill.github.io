@@ -37,3 +37,6 @@ theme = "hugo-theme-m10c"
   lightColor    = "#F5F5F5"      # content background
   lightestColor = "#FFFFFF"      # page background
   primaryColor  = "#2A9D8F"      # ← your new primary
+
+[[caches.images]]
+  dir = ':cacheDir/images'
