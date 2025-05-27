@@ -9,11 +9,11 @@
     <lastBuildDate>Tue, 27 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Setting Up CI for a Personal Project with AI Pair Programming — A Beginner-Friendly Guide</title>
-      <link>http://localhost:1313/posts/ai-pair-programming-ci/</link>
+      <title>Why You Should Sign Up for a FREE FOR LIFE Oracle Cloud Instance</title>
+      <link>http://localhost:1313/posts/toolset-why-getting-free-oci-worth-it/</link>
       <pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/ai-pair-programming-ci/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt; Continuous Integration (CI) is a friendly robot that automatically checks your code every time you hit &lt;strong&gt;Save → Commit → Push&lt;/strong&gt;. When you’re coding with AI helpers like GitHub Copilot, that robot becomes your safety net. This post shows you—step by step—how to set up that robot for a small Go project.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1--what-is-continuous-integration-exactly&#34;&gt;1  What &lt;em&gt;Is&lt;/em&gt; Continuous Integration, Exactly?&lt;/h2&gt;&#xA;&lt;p&gt;Think of building software like writing a group story: everyone adds sentences and paragraphs. If nobody proofs the story until the very end, you might discover plot holes or typos too late. &lt;strong&gt;CI is the auto-proofreader&lt;/strong&gt; that runs every time someone adds new text, pointing out problems immediately.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/toolset-why-getting-free-oci-worth-it/</guid>
+      <description>&lt;h1 id=&#34;why-you-should-sign-up-for-a-free-for-life-oracle-cloud-instance&#34;&gt;Why You Should Sign Up for a FREE FOR LIFE Oracle Cloud Instance&lt;/h1&gt;&#xA;&lt;p&gt;Building hobby projects with AI pair programming (Copilot, ChatGPT, etc.) is exhilarating—but without a solid operations layer, your code can become fragile, unmaintainable, and vulnerable to “hallucinations.” Enter &lt;strong&gt;Oracle Cloud Always Free Tier&lt;/strong&gt;: a truly free-for-life cloud sandbox that gives you industrial-strength DevOps capabilities at zero cost. Below, we’ll explore why it’s worth your time, plus a few caveats to keep in mind.&lt;/p&gt;</description>
     </item>
     <item>
       <title>About</title>
@@ -21,13 +21,6 @@
       <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/about/</guid>
       <description>&lt;p&gt;Hello! I’m &lt;strong&gt;Gil Blinov&lt;/strong&gt;, a Senior DevOps Engineer based in Israel. I started in the tech world in 2002 and I&amp;rsquo;ve been working as a DevOps engineer from 2016. I help design, build and operate scalable, reliable infrastructure on AWS and GCP. At Fairgen, I’m the solo DevOps lead, owning everything from infrastructure, through CI/CD pipelines (GitHub Actions, ArgoCD, Skaffold) to observability (Grafana, Prometheus, Loki) and security automation.&lt;/p&gt;&#xA;&lt;p&gt;Beyond work, I’m a lifelong tinkerer:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>When AI Meets CI: Why Your AI-Enabled Project Needs Rock-Solid Continuous Integration</title>
-      <link>http://localhost:1313/posts/phase-0-ci/</link>
-      <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/phase-0-ci/</guid>
-      <description>&lt;p&gt;AI tools like ChatGPT, Claude, or Cohere are revolutionizing how we write code, generate content, and even design systems. But they also introduce a new wrinkle: erratic, far-reaching changes that can slip through the cracks and cost hours—or even days—to debug. A well-designed Continuous Integration (CI) pipeline isn’t just “nice to have” in AI-driven projects; it’s the foundation that keeps your codebase healthy, collaborative, and predictably releasable.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;1-erratic-changes-demand-early-detection&#34;&gt;1. Erratic Changes Demand Early Detection&lt;/h3&gt;&#xA;&lt;p&gt;AI-assisted code completions and prompt-driven boilerplate generation can produce unexpected variations in formatting, naming, or logic. Without rapid feedback, these changes can hide subtle bugs in core modules—bugs that only surface when you least expect them.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Why I’m Writing a Series of Articles Directed at Home Coders: Industrial Strength DevOps at Home and for Free</title>
