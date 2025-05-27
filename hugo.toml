@@ -1,0 +1,39 @@
+baseURL = "https://gilblinov.com/"
+languageCode = "en-us"
+title = "Industrial Strength DevOps"
+theme = "hugo-theme-m10c"
+
+[params]
+  author = "Gil Blinov"
+  description = "An engineer's journey in an ever changing world"
+  avatar = "avatar.jpg"
+
+# Social links in sidebar
+[[params.social]]
+  icon = "brand-github"
+  name = "GitHub"
+  url  = "https://github.com/BelKirill"
+
+[[params.social]]
+  icon = "brand-devdotto"
+  name = "Dev.to"
+  url  = "https://dev.to/gilblinov"
+
+# Sidebar menu items
+[[menu.main]]
+  identifier = "home"
+  name       = "Home"
+  url        = "/"
+
+[[menu.main]]
+  identifier = "about"
+  name       = "About"
+  url        = "/about/"
+
+# Theme color palette
+[params.style]
+  darkestColor  = "#2A2A2A"      # your dark background
+  darkColor     = "#444444"      # sidebar or nav background
+  lightColor    = "#F5F5F5"      # content background
+  lightestColor = "#FFFFFF"      # page background
+  primaryColor  = "#2A9D8F"      # ← your new primary

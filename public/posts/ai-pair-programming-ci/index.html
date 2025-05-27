@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Setting Up CI for a Personal Project with AI Pair Programming — A Beginner-Friendly Guide // Industrial Strength DevOps</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.147.5">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Gil Blinov" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/main.min.3a28eb2c4551ce22952fd498b90b233c8d03325e908161354539cb80221ddd53.css" />
+    
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Setting Up CI for a Personal Project with AI Pair Programming — A Beginner-Friendly Guide">
+  <meta name="twitter:description" content="TL;DR: Continuous Integration (CI) is a friendly robot that automatically checks your code every time you hit Save → Commit → Push. When you’re coding with AI helpers like GitHub Copilot, that robot becomes your safety net. This post shows you—step by step—how to set up that robot for a small Go project.
+1 What Is Continuous Integration, Exactly? Think of building software like writing a group story: everyone adds sentences and paragraphs. If nobody proofs the story until the very end, you might discover plot holes or typos too late. CI is the auto-proofreader that runs every time someone adds new text, pointing out problems immediately.">
+
+    <meta property="og:url" content="http://localhost:1313/posts/ai-pair-programming-ci/">
+  <meta property="og:site_name" content="Industrial Strength DevOps">
+  <meta property="og:title" content="Setting Up CI for a Personal Project with AI Pair Programming — A Beginner-Friendly Guide">
+  <meta property="og:description" content="TL;DR: Continuous Integration (CI) is a friendly robot that automatically checks your code every time you hit Save → Commit → Push. When you’re coding with AI helpers like GitHub Copilot, that robot becomes your safety net. This post shows you—step by step—how to set up that robot for a small Go project.
+1 What Is Continuous Integration, Exactly? Think of building software like writing a group story: everyone adds sentences and paragraphs. If nobody proofs the story until the very end, you might discover plot holes or typos too late. CI is the auto-proofreader that runs every time someone adds new text, pointing out problems immediately.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-05-27T00:00:00+00:00">
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="/"><img class="app-header-avatar" src="/avatar.jpg" alt="Gil Blinov" /></a>
+      <span class="app-header-title">Industrial Strength DevOps</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/">Home</a>
+      </nav>
+      <p>An engineer&#39;s journey in an ever changing world</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/BelKirill" target="_blank" rel="noreferrer noopener me">
+            <svg class="icon icon-brand-github" viewBox="0 0 24 24" fill="currentColor"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
+        
+          <a href="https://dev.to/gilblinov" target="_blank" rel="noreferrer noopener me">
+            <svg class="icon icon-brand-devdotto" viewBox="0 0 24 24" fill="currentColor"><title>dev.to</title><path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6l.02 2.44.04 2.45.56-.02c.41 0 .63-.07.83-.26.24-.24.26-.36.26-2.2 0-1.91-.02-1.96-.29-2.18zM0 4.94v14.12h24V4.94H0zM8.56 15.3c-.44.58-1.06.77-2.53.77H4.71V8.53h1.4c1.67 0 2.16.18 2.6.9.27.43.29.6.32 2.57.05 2.23-.02 2.73-.47 3.3zm5.09-5.47h-2.47v1.77h1.52v1.28l-.72.04-.75.03v1.77l1.22.03 1.2.04v1.28h-1.6c-1.53 0-1.6-.01-1.87-.3l-.3-.28v-3.16c0-3.02.01-3.18.25-3.48.23-.31.25-.31 1.88-.31h1.64v1.3zm4.68 5.45c-.17.43-.64.79-1 .79-.18 0-.45-.15-.67-.39-.32-.32-.45-.63-.82-2.08l-.9-3.39-.45-1.67h.76c.4 0 .75.02.75.05 0 .06 1.16 4.54 1.26 4.83.04.15.32-.7.73-2.3l.66-2.52.74-.04c.4-.02.73 0 .73.04 0 .14-1.67 6.38-1.8 6.68z"/></svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Setting Up CI for a Personal Project with AI Pair Programming — A Beginner-Friendly Guide</h1>
+      <div class="post-meta">
+        <div>
+          <svg class="icon icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          May 27, 2025
+        </div>
+        <div>
+          <svg class="icon icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>clock</title><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          4 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <blockquote>
+<p><strong>TL;DR:</strong> Continuous Integration (CI) is a friendly robot that automatically checks your code every time you hit <strong>Save → Commit → Push</strong>. When you’re coding with AI helpers like GitHub Copilot, that robot becomes your safety net. This post shows you—step by step—how to set up that robot for a small Go project.</p></blockquote>
+<hr>
+<h2 id="1--what-is-continuous-integration-exactly">1  What <em>Is</em> Continuous Integration, Exactly?</h2>
+<p>Think of building software like writing a group story: everyone adds sentences and paragraphs. If nobody proofs the story until the very end, you might discover plot holes or typos too late. <strong>CI is the auto-proofreader</strong> that runs every time someone adds new text, pointing out problems immediately.</p>
+<p>Put differently, CI is a service (often free) that:</p>
+<ol>
+<li><em>Fetches</em> your latest code from GitHub.</li>
+<li><em>Runs checks</em>—formatters, linters, tests, builds.</li>
+<li><em>Reports</em> success or failure in a neat  / ❌ badge.</li>
+</ol>
+<p>The sooner you know something broke, the cheaper it is to fix—this idea is called <strong>“shift-left”</strong>.</p>
+<hr>
+<h2 id="2--why-does-ci-matter-more-when-you-use-ai-helpers">2  Why Does CI Matter More When You Use AI Helpers?</h2>
+<p>AI pair-programming is amazing: Copilot or ChatGPT can spit out functions in seconds. But speed can hide subtle issues—typos, inefficient loops, variables you never use. A basic CI pipeline:</p>
+<ul>
+<li><strong>Formats</strong> code (so human + AI write in the same style).</li>
+<li><strong>Lints</strong> for common mistakes.</li>
+<li><strong>Runs tests</strong> so AI-suggested code doesn’t quietly break features.</li>
+</ul>
+<p>Bottom line: CI lets you experiment with AI fearlessly—if the robot says ❌ you fix and move on.</p>
+<hr>
+<h2 id="3--the-tools-well-use-all-free">3  The Tools We’ll Use (All Free)</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Purpose</th>
+          <th>Tool</th>
+          <th>Why You Need It</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Format Go code</td>
+          <td><strong>gofmt</strong></td>
+          <td>Makes files consistent—no debates about spaces vs. tabs.</td>
+      </tr>
+      <tr>
+          <td>Organise imports</td>
+          <td><strong>goimports</strong></td>
+          <td>Adds missing imports, removes unused ones.</td>
+      </tr>
+      <tr>
+          <td>Catch bugs &amp; style issues</td>
+          <td><strong>golangci-lint</strong></td>
+          <td>Bundles dozens of linters into one fast run.</td>
+      </tr>
+      <tr>
+          <td>Run checks <em>before</em> committing</td>
+          <td><strong>pre-commit</strong></td>
+          <td>Stops bad code at the door.</td>
+      </tr>
+      <tr>
+          <td>Run checks in the cloud</td>
+          <td><strong>GitHub Actions</strong></td>
+          <td>Free minutes for public &amp; small private repos.</td>
+      </tr>
+      <tr>
+          <td>Build &amp; ship the app</td>
+          <td><strong>Docker</strong></td>
+          <td>Optional for later deployment—nice to have.</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>You don’t need a fancy server or paid plan; GitHub gives generous free runners.</em></p>
+<hr>
+<h2 id="4--step-by-step-your-first-ci-pipeline">4  Step-By-Step: Your First CI Pipeline</h2>
+<h3 id="41--set-up-local-guards-with-pre-commit">4.1  Set Up Local Guards with pre-commit</h3>
+<ol>
+<li><strong>Install</strong> pre-commit:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install pre-commit  <span style="color:#75715e"># works on macOS/Linux/Windows (needs Python)</span>
+</span></span></code></pre></div></li>
+<li><strong>Create</strong> a file called <code>.pre-commit-config.yaml</code> in your project root:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">repos</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">repo</span>: <span style="color:#ae81ff">https://github.com/dnephin/pre-commit-golang</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">rev</span>: <span style="color:#ae81ff">v0.4.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hooks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">id</span>: <span style="color:#ae81ff">go-fmt</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">id</span>: <span style="color:#ae81ff">go-imports</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">id</span>: <span style="color:#ae81ff">golangci-lint</span>
+</span></span></code></pre></div></li>
+<li><strong>Activate</strong> the hooks:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pre-commit install
+</span></span></code></pre></div></li>
+</ol>
+<p>Now every <code>git commit</code> runs these checks automatically—no excuses!</p>
+<h3 id="42--add-cloud-checks-with-github-actions">4.2  Add Cloud Checks with GitHub Actions</h3>
+<p>Create <code>.github/workflows/ci.yml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">CI</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>: {<span style="color:#f92672">branches</span>: [<span style="color:#ae81ff">main]}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pull_request</span>: {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">test</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v4</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/setup-go@v5</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">go-version</span>: <span style="color:#e6db74">&#39;1.22&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Run pre-commit on all files</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Lint &amp; Format</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          pip install pre-commit
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          pre-commit run --all-files</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Run unit tests</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Go test</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">go test ./...</span>
+</span></span></code></pre></div><p>Push this to GitHub → the Actions tab shows a green ✔️ or red ❌ for each push.</p>
+<p><em>Tip:</em> If the AI writes the YAML for you, copy‑paste but still read it—you’re responsible, not the AI.</p>
+<hr>
+<h2 id="5--faq-for-absolute-beginners">5  FAQ for Absolute Beginners</h2>
+<blockquote>
+<p><strong>Do I need tests before using CI?</strong><br>
+Not at first! Start with format + lint; add tests when you’re ready.</p></blockquote>
+<blockquote>
+<p><strong>Won’t CI slow me down?</strong><br>
+The opposite: catching issues early saves hours later. The cloud run happens in parallel—you keep coding.</p></blockquote>
+<blockquote>
+<p><strong>What if I don’t know Docker?</strong><br>
+Skip it for now. You can add a Docker step once your project needs deployment.</p></blockquote>
+<hr>
+<h2 id="6--next-steps">6  Next Steps</h2>
+<ol>
+<li><strong>Invite your AI partner</strong> to write a simple unit test file—then watch CI run it.</li>
+<li><strong>Explore golangci-lint rules</strong> (they’re configurable, so you decide how strict).</li>
+<li><strong>Share your repo</strong>—visitors will see green badges and trust your code.</li>
+</ol>
+<hr>
+<h3 id="final-thought">Final Thought</h3>
+<p>CI is like brushing your teeth: a small daily habit that prevents big pain later. Pair it with AI coding assistants and you get the best of both worlds—creative speed <em>and</em> solid quality. Once you master this workflow, you’ll wonder how you ever coded without it.</p>
+<p>Happy (and safe) hacking! 🚀</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
