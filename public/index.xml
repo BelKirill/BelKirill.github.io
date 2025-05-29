@@ -6,8 +6,15 @@
     <description>Recent content on Industrial Strength DevOps</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting up a k3s Cluster on a Brand New OCI Instance: A Step-by-Step Guide</title>
+      <link>http://localhost:1313/posts/toolset-install-k3s-and-tailscale-on-oci/</link>
+      <pubDate>Wed, 28 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/toolset-install-k3s-and-tailscale-on-oci/</guid>
+      <description>&lt;p&gt;When you’re tinkering with AI pair programming or hacking away at your next project, spinning up a robust, lightweight Kubernetes cluster can really level up your game. In this guide, I’ll walk you through setting up a k3s cluster on a fresh Oracle Cloud Infrastructure (OCI) instance, using Tailscale for secure networking and tweaking the config to make it all work seamlessly from your local machine.&lt;/p&gt;&#xA;&lt;p&gt;Let’s roll up our sleeves and get this k3s cluster humming!&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Why You Should Sign Up for a FREE FOR LIFE Oracle Cloud Instance</title>
       <link>http://localhost:1313/posts/toolset-why-getting-free-oci-worth-it/</link>
