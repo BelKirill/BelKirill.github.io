@@ -16,6 +16,13 @@
       <description>&lt;h1 id=&#34;why-you-should-sign-up-for-a-free-for-life-oracle-cloud-instance&#34;&gt;Why You Should Sign Up for a FREE FOR LIFE Oracle Cloud Instance&lt;/h1&gt;&#xA;&lt;p&gt;Building hobby projects with AI pair programming (Copilot, ChatGPT, etc.) is exhilarating—but without a solid operations layer, your code can become fragile, unmaintainable, and vulnerable to “hallucinations.” Enter &lt;strong&gt;Oracle Cloud Always Free Tier&lt;/strong&gt;: a truly free-for-life cloud sandbox that gives you industrial-strength DevOps capabilities at zero cost. Below, we’ll explore why it’s worth your time, plus a few caveats to keep in mind.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Setting up a k3s Cluster on a Brand New OCI Instance: A Step-by-Step Guide</title>
+      <link>http://localhost:1313/posts/toolset-install-k3s-and-tailscale-on-oci/</link>
+      <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/toolset-install-k3s-and-tailscale-on-oci/</guid>
+      <description>&lt;p&gt;When you’re tinkering with AI pair programming or hacking away at your next project, spinning up a robust, lightweight Kubernetes cluster can really level up your game. In this guide, I’ll walk you through setting up a k3s cluster on a fresh Oracle Cloud Infrastructure (OCI) instance, using Tailscale for secure networking and tweaking the config to make it all work seamlessly from your local machine.&lt;/p&gt;&#xA;&lt;p&gt;Let’s roll up our sleeves and get this k3s cluster humming!&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Why I’m Writing a Series of Articles Directed at Home Coders: Industrial Strength DevOps at Home and for Free</title>
       <link>http://localhost:1313/posts/toolset-why-am-i-doing-this/</link>
       <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate>
