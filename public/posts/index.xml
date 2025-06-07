@@ -6,8 +6,43 @@
     <description>Recent content in Posts on Industrial Strength DevOps</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>When You Need a Product Manager But You ARE the Product Manager: Using AI to Overcome Analysis Paralysis</title>
+      <link>http://localhost:1313/posts/vikunja-when-you-need-pm/</link>
+      <pubDate>Sat, 07 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/vikunja-when-you-need-pm/</guid>
+      <description>Discover how I leveraged AI (Claude) to break through decision fatigue, create clear deliverables, and build the AI assistant I envisioned for ADHD high performers.</description>
+    </item>
+    <item>
+      <title>Rolling My Own: When Learning Trumps Efficiency in API Client Development</title>
+      <link>http://localhost:1313/posts/rolling-my-own-vikunja-api-client-go/</link>
+      <pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rolling-my-own-vikunja-api-client-go/</guid>
+      <description>&lt;h1 id=&#34;rolling-my-own-when-learning-trumps-efficiency-in-api-client-development&#34;&gt;Rolling My Own: When Learning Trumps Efficiency in API Client Development&lt;/h1&gt;&#xA;&lt;p&gt;Eight years in DevOps teaches you one thing above all else: there&amp;rsquo;s always more than one way to solve a problem. But choosing which path to take? That&amp;rsquo;s where experience meets psychology, and sometimes the &amp;ldquo;inefficient&amp;rdquo; choice is exactly what you need.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-roadblock-when-auto-generation-goes-too-far&#34;&gt;The Roadblock: When Auto-Generation Goes Too Far&lt;/h2&gt;&#xA;&lt;p&gt;I hit a wall recently while working on a Vikunja integration project. The auto-generated OpenAPI client was&amp;hellip; robust. Too robust. We&amp;rsquo;re talking 111 files of generated Go code for what I needed to accomplish. Coming from Python, where I&amp;rsquo;d typically reach for &lt;code&gt;requests&lt;/code&gt; and call it a day, this felt like bringing a freight train to deliver a letter.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Deploying Vikunja on a k3s Cluster as an Example of Planning and Writing Out a Helm Chart</title>
+      <link>http://localhost:1313/posts/vikunja-mcp-installing-vikunja-on-k8s/</link>
+      <pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/vikunja-mcp-installing-vikunja-on-k8s/</guid>
+      <description>Deploying Vikunja using a newly written Helm chart. A step by step guide.</description>
+    </item>
+    <item>
+      <title>Setting up a k3s Cluster on a Brand New OCI Instance: A Step-by-Step Guide</title>
+      <link>http://localhost:1313/posts/toolset-install-k3s-and-tailscale-on-oci/</link>
+      <pubDate>Wed, 28 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/toolset-install-k3s-and-tailscale-on-oci/</guid>
+      <description>&lt;p&gt;When you’re tinkering with AI pair programming or hacking away at your next project, spinning up a robust, lightweight Kubernetes cluster can really level up your game. In this guide, I’ll walk you through setting up a k3s cluster on a fresh Oracle Cloud Infrastructure (OCI) instance, using Tailscale for secure networking and tweaking the config to make it all work seamlessly from your local machine.&lt;/p&gt;&#xA;&lt;p&gt;Let’s roll up our sleeves and get this k3s cluster humming!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting Up CI for a Personal Project with AI Pair Programming — A Beginner-Friendly Guide</title>
+      <link>http://localhost:1313/posts/ai-pair-programming-ci/</link>
+      <pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ai-pair-programming-ci/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt; Continuous Integration (CI) is a friendly robot that automatically checks your code every time you hit &lt;strong&gt;Save → Commit → Push&lt;/strong&gt;. When you’re coding with AI helpers like GitHub Copilot, that robot becomes your safety net. This post shows you—step by step—how to set up that robot for a small Go project.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1--what-is-continuous-integration-exactly&#34;&gt;1  What &lt;em&gt;Is&lt;/em&gt; Continuous Integration, Exactly?&lt;/h2&gt;&#xA;&lt;p&gt;Think of building software like writing a group story: everyone adds sentences and paragraphs. If nobody proofs the story until the very end, you might discover plot holes or typos too late. &lt;strong&gt;CI is the auto-proofreader&lt;/strong&gt; that runs every time someone adds new text, pointing out problems immediately.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Why You Should Sign Up for a FREE FOR LIFE Oracle Cloud Instance</title>
       <link>http://localhost:1313/posts/toolset-why-getting-free-oci-worth-it/</link>
@@ -16,11 +51,11 @@
       <description>&lt;h1 id=&#34;why-you-should-sign-up-for-a-free-for-life-oracle-cloud-instance&#34;&gt;Why You Should Sign Up for a FREE FOR LIFE Oracle Cloud Instance&lt;/h1&gt;&#xA;&lt;p&gt;Building hobby projects with AI pair programming (Copilot, ChatGPT, etc.) is exhilarating—but without a solid operations layer, your code can become fragile, unmaintainable, and vulnerable to “hallucinations.” Enter &lt;strong&gt;Oracle Cloud Always Free Tier&lt;/strong&gt;: a truly free-for-life cloud sandbox that gives you industrial-strength DevOps capabilities at zero cost. Below, we’ll explore why it’s worth your time, plus a few caveats to keep in mind.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Setting up a k3s Cluster on a Brand New OCI Instance: A Step-by-Step Guide</title>
-      <link>http://localhost:1313/posts/toolset-install-k3s-and-tailscale-on-oci/</link>
+      <title>When AI Meets CI: Why Your AI-Enabled Project Needs Rock-Solid Continuous Integration</title>
+      <link>http://localhost:1313/posts/phase-0-ci/</link>
       <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/toolset-install-k3s-and-tailscale-on-oci/</guid>
-      <description>&lt;p&gt;When you’re tinkering with AI pair programming or hacking away at your next project, spinning up a robust, lightweight Kubernetes cluster can really level up your game. In this guide, I’ll walk you through setting up a k3s cluster on a fresh Oracle Cloud Infrastructure (OCI) instance, using Tailscale for secure networking and tweaking the config to make it all work seamlessly from your local machine.&lt;/p&gt;&#xA;&lt;p&gt;Let’s roll up our sleeves and get this k3s cluster humming!&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/phase-0-ci/</guid>
+      <description>&lt;p&gt;AI tools like ChatGPT, Claude, or Cohere are revolutionizing how we write code, generate content, and even design systems. But they also introduce a new wrinkle: erratic, far-reaching changes that can slip through the cracks and cost hours—or even days—to debug. A well-designed Continuous Integration (CI) pipeline isn’t just “nice to have” in AI-driven projects; it’s the foundation that keeps your codebase healthy, collaborative, and predictably releasable.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;1-erratic-changes-demand-early-detection&#34;&gt;1. Erratic Changes Demand Early Detection&lt;/h3&gt;&#xA;&lt;p&gt;AI-assisted code completions and prompt-driven boilerplate generation can produce unexpected variations in formatting, naming, or logic. Without rapid feedback, these changes can hide subtle bugs in core modules—bugs that only surface when you least expect them.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Why I’m Writing a Series of Articles Directed at Home Coders: Industrial Strength DevOps at Home and for Free</title>

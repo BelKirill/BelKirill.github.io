@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cd on Industrial Strength DevOps</title>
+    <link>http://localhost:1313/tags/cd/</link>
+    <description>Recent content in Cd on Industrial Strength DevOps</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/cd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploying Vikunja on a k3s Cluster as an Example of Planning and Writing Out a Helm Chart</title>
+      <link>http://localhost:1313/posts/vikunja-mcp-installing-vikunja-on-k8s/</link>
+      <pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/vikunja-mcp-installing-vikunja-on-k8s/</guid>
+      <description>Deploying Vikunja using a newly written Helm chart. A step by step guide.</description>
+    </item>
+  </channel>
+</rss>
