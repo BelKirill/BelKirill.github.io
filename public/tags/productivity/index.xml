@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Productivity on Industrial Strength DevOps</title>
+    <link>http://localhost:1313/tags/productivity/</link>
+    <description>Recent content in Productivity on Industrial Strength DevOps</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>When You Need a Product Manager But You ARE the Product Manager: Using AI to Overcome Analysis Paralysis</title>
+      <link>http://localhost:1313/posts/vikunja-when-you-need-pm/</link>
+      <pubDate>Sat, 07 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/vikunja-when-you-need-pm/</guid>
+      <description>Discover how I leveraged AI (Claude) to break through decision fatigue, create clear deliverables, and build the AI assistant I envisioned for ADHD high performers.</description>
+    </item>
+  </channel>
+</rss>

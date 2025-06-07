@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Learning on Industrial Strength DevOps</title>
+    <link>http://localhost:1313/tags/learning/</link>
+    <description>Recent content in Learning on Industrial Strength DevOps</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rolling My Own: When Learning Trumps Efficiency in API Client Development</title>
+      <link>http://localhost:1313/posts/rolling-my-own-vikunja-api-client-go/</link>
+      <pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rolling-my-own-vikunja-api-client-go/</guid>
+      <description>&lt;h1 id=&#34;rolling-my-own-when-learning-trumps-efficiency-in-api-client-development&#34;&gt;Rolling My Own: When Learning Trumps Efficiency in API Client Development&lt;/h1&gt;&#xA;&lt;p&gt;Eight years in DevOps teaches you one thing above all else: there&amp;rsquo;s always more than one way to solve a problem. But choosing which path to take? That&amp;rsquo;s where experience meets psychology, and sometimes the &amp;ldquo;inefficient&amp;rdquo; choice is exactly what you need.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-roadblock-when-auto-generation-goes-too-far&#34;&gt;The Roadblock: When Auto-Generation Goes Too Far&lt;/h2&gt;&#xA;&lt;p&gt;I hit a wall recently while working on a Vikunja integration project. The auto-generated OpenAPI client was&amp;hellip; robust. Too robust. We&amp;rsquo;re talking 111 files of generated Go code for what I needed to accomplish. Coming from Python, where I&amp;rsquo;d typically reach for &lt;code&gt;requests&lt;/code&gt; and call it a day, this felt like bringing a freight train to deliver a letter.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
