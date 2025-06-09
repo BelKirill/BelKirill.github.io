@@ -1,10 +1,10 @@
 ---
-title: "Do We Really Need Another Tool? Some of Us Do."
+title: "Do We Really Need Another Productivity Tool? Some of Us Do."
 date: 2025-06-08
 author: "Gil Blinov"
 summary: "For neurodivergent folks, especially those with ADHD, AI-powered task assistants aren't just another tool — they're sometimes the only way to function. Here's a deep dive into the latest ADHD-friendly AI tools and why they matter."
 tags: ["adhd", "neurodivergent", "productivity", "ai", "task-management", "motion", "goblin-tools", "open-source"]
-draft: true
+draft: false
 ---
 
 # Do We Really Need Another Tool? Some of Us Do.
