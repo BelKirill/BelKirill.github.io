@@ -301,4 +301,4 @@ What repetitive tasks are stealing your creative energy? And more importantly, w
 
 ---
 
-*The complete automation pipeline described in this post uses Fabric patterns and is available on GitHub. Fabric itself is open source and actively maintained by a vibrant community. Get started at [danielmiessler/fabric](https://github.com/danielmiessler/fabric).*
+*Fabric is open source and actively maintained by a vibrant community. Get started at [danielmiessler/fabric](https://github.com/danielmiessler/fabric).*
