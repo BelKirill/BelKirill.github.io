@@ -9,7 +9,6 @@ tools: ["fabric", "github-actions", "openai-api", "terraform"]
 series: "AI-Powered DevOps"
 reading_time: 15
 toc: true
-featured: true
 ---
 # Automating Your Content Pipeline: From Blog to Social in Seconds with Fabric
 
