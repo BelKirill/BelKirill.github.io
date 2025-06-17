@@ -1,6 +1,6 @@
 ---
-title: "Building Intelligent Content Pipelines with Fabric AI and GitHub Actions"
 date: 2025-06-12T10:00:00Z
+title: "Building Intelligent Content Pipelines with Fabric AI and GitHub Actions"
 description: "Complete guide to automating content workflows using Fabric's AI pattern framework, CI/CD best practices, and intelligent deployment strategies"
 categories: ["DevOps", "AI/ML"]
 tags: ["fabric-ai", "devops-automation", "github-actions", "ai-content-pipeline", "ci-cd", "workflow-automation", "llm-integration"]

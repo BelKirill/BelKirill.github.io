@@ -1,6 +1,6 @@
 ---
-title: "Building an AI Task Recommender Because I Was Tired of Choice Paralysis"
 date: 2025-06-14T10:00:00+10:00
+title: "Building an AI Task Recommender Because I Was Tired of Choice Paralysis"
 draft: false
 description: "How I solved my morning productivity problem with Go, OpenAI, and some questionable architectural decisions"
 tags: 
