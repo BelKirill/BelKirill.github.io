@@ -1,6 +1,6 @@
 ---
-title: "Deploying Vikunja on a k3s Cluster as an Example of Planning and Writing Out a Helm Chart"
 date: 2025-06-01
+title: "Deploying Vikunja on a k3s Cluster as an Example of Planning and Writing Out a Helm Chart"
 draft: false
 summary: "Deploying Vikunja using a newly written Helm chart. A step by step guide."
 description: "Learn how to write a Helm chart by learning how I deployed Vikunja on my k3s cluster."
