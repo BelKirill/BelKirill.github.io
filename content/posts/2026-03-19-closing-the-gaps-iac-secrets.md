@@ -14,7 +14,7 @@ reading_time: 8
 toc: true
 ---
 
-In the [previous post]({{< ref "posts/zero-trust-secrets-iac-1password-cli" >}}), I covered how `op run` keeps secrets off disk and out of AI agent context windows during IaC bootstrap. I also listed the gaps — state file leakage, process environment exposure, secret inventory disclosure, and 1Password as a single point of failure.
+In the [previous post]({{< ref "posts/2026-03-19-zero-trust-secrets-iac-1password-cli" >}}), I covered how `op run` keeps secrets off disk and out of AI agent context windows during IaC bootstrap. I also listed the gaps — state file leakage, process environment exposure, secret inventory disclosure, and 1Password as a single point of failure.
 
 State file leakage is the big one. This post is about closing it, and about the full layered defense I'm running in 2026.
 
@@ -185,4 +185,4 @@ The `op run` pattern from the previous post handles the bootstrap phase. Ephemer
 
 ---
 
-*This concludes the secrets arc of the [Claude-Ops series]({{< ref "posts/claude-ops-next-step-devops-evolution" >}}). The pattern: Claude proposes the command shape, `op run` fills in the secrets, ephemeral resources keep them out of state, and ESO handles runtime. Each layer does one thing well.*
+*This concludes the secrets arc of the [Claude-Ops series]({{< ref "posts/2026-03-17-claude-ops-next-step-devops-evolution" >}}). The pattern: Claude proposes the command shape, `op run` fills in the secrets, ephemeral resources keep them out of state, and ESO handles runtime. Each layer does one thing well.*
