@@ -14,7 +14,7 @@ reading_time: 8
 toc: true
 ---
 
-In my [last post]({{< ref "posts/claude-ops-next-step-devops-evolution" >}}), I mentioned a pattern: `.env` files with `op://` references, wrapped with `op run`. I promised a deeper dive. Here it is.
+In my [last post]({{< ref "posts/2026-03-17-claude-ops-next-step-devops-evolution" >}}), I mentioned a pattern: `.env` files with `op://` references, wrapped with `op run`. I promised a deeper dive. Here it is.
 
 This is how I manage secrets for OpenTofu in contexts where a cloud-native secret manager isn't available yet — bootstrapping new infrastructure, homelab setups, local development, and the messy pre-production phase where GCP Secret Manager or AWS Secrets Manager aren't in the picture. No Vault cluster, no SOPS keyrings, no plaintext on disk. Just 1Password doing what it already does well, extended to infrastructure.
 
@@ -243,4 +243,4 @@ But there are real gaps — state file leakage being the biggest. The good news 
 
 ---
 
-*This is the pattern I referenced in [Claude-Ops: The Next Step in the DevOps Evolution]({{< ref "posts/claude-ops-next-step-devops-evolution" >}}). Next up: [Closing the Gaps — Ephemeral Resources, State Encryption, and the Full Secrets Stack]({{< ref "posts/closing-the-gaps-iac-secrets" >}}).*
+*This is the pattern I referenced in [Claude-Ops: The Next Step in the DevOps Evolution]({{< ref "posts/2026-03-17-claude-ops-next-step-devops-evolution" >}}). Next up: [Closing the Gaps — Ephemeral Resources, State Encryption, and the Full Secrets Stack]({{< ref "posts/2026-03-19-closing-the-gaps-iac-secrets" >}}).*
