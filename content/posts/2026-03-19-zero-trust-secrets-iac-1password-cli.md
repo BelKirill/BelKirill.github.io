@@ -3,14 +3,14 @@ title: "Zero-Trust Secrets for Infrastructure-as-Code with 1Password CLI"
 date: 2026-03-19
 draft: false
 summary: "How op run keeps secrets out of AI agent context windows and bootstraps IaC workflows — and where cloud-native secret managers take over"
-description: "How I use op run to keep secrets out of AI agent context windows and bootstrap IaC workflows — where it fits, where cloud-native secret managers take over, and the modern mitigations that close the gaps."
+description: "How I use op run to keep secrets out of AI agent context windows and bootstrap IaC workflows — where it fits, where cloud-native secret managers take over, and the gaps you need to know about."
 tags: ["devops", "security", "iac", "opentofu", "1password", "secrets", "ai", "claudeops"]
 categories: ["DevOps", "Security"]
 keywords: ["1password", "op run", "opentofu", "secrets management", "iac", "external secrets operator", "claude-ops", "zero-trust"]
 author: "Gil Blinov"
 slug: "zero-trust-secrets-iac-1password-cli"
 series: "Claude-Ops"
-reading_time: 15
+reading_time: 8
 toc: true
 ---
 
@@ -188,143 +188,6 @@ If 1Password is down, you can't deploy. Unlike SOPS where encrypted files are lo
 
 ---
 
-## Closing the Gaps: The Modern Layered Defense
-
-The good news: 2025-2026 brought real solutions for the state file problem.
-
-### Ephemeral Resources (Terraform 1.10+ / OpenTofu 1.11+)
-
-This is the single biggest improvement in the IaC secrets landscape, and it applies whether you're in production or bootstrapping a homelab. Ephemeral resources are temporary — they're **never persisted in state or plan files**.
-
-The 1Password Terraform provider (v3.2+) now supports them:
-
-```hcl
-ephemeral "onepassword_item" "db_creds" {
-  vault = "Infrastructure"
-  title = "database-prod"
-}
-
-resource "aws_db_instance" "main" {
-  password_wo = ephemeral.onepassword_item.db_creds.password
-}
-```
-
-The `password_wo` argument (write-only, Terraform 1.11+) accepts the value, sends it to the API, and **never stores it in state**. Combined with ephemeral resources, secrets flow through the system without leaving a trace.
-
-This is the real solution to state file leakage — not marking variables as sensitive, not encrypting state after the fact. Just never writing the secret to state in the first place.
-
-### OpenTofu State Encryption
-
-If you're on OpenTofu (and for IaC work, I think you should be), you get client-side state encryption that Terraform still doesn't have. State and plan files are encrypted before they hit any backend.
-
-For cloud setups, use KMS. For homelab where you don't have a cloud KMS, PBKDF2 with a passphrase works:
-
-```hcl
-# Homelab: passphrase-based encryption (no cloud KMS needed)
-terraform {
-  encryption {
-    key_provider "pbkdf2" "state_key" {
-      passphrase = var.state_passphrase  # or inject via op run
-    }
-    method "aes_gcm" "encrypt" {
-      keys = key_provider.pbkdf2.state_key
-    }
-    state {
-      method   = method.aes_gcm.encrypt
-      enforced = true
-    }
-  }
-}
-```
-
-```hcl
-# Cloud: AWS KMS-backed encryption
-terraform {
-  encryption {
-    key_provider "aws_kms" "state_key" {
-      kms_key_id = "arn:aws:kms:us-east-1:123456789:key/abc-123"
-      region     = "us-east-1"
-      key_spec   = "AES_256"
-    }
-    method "aes_gcm" "encrypt" {
-      keys = key_provider.aws_kms.state_key
-    }
-    state {
-      method   = method.aes_gcm.encrypt
-      enforced = true
-    }
-  }
-}
-```
-
-The `enforced = true` flag prevents anyone from accidentally disabling encryption. This has been GA since OpenTofu 1.7. PBKDF2 works anywhere with just a passphrase (inject it via `op run`); KMS-backed encryption is better when you have cloud infrastructure available.
-
-This doesn't prevent secrets from being in state — it ensures that if someone gets your state file, they get encrypted gibberish without the KMS key.
-
-### The Full Stack
-
-My secrets strategy in 2026 has two modes:
-
-**Production (cloud workloads):**
-1. **GCP Secret Manager / AWS Secrets Manager** as the source of truth
-2. **External Secrets Operator** syncing secrets into Kubernetes
-3. **Ephemeral resources + write-only arguments** for any IaC that touches secrets
-4. **OpenTofu state encryption** as defense-in-depth
-5. **OIDC everywhere** — no static cloud credentials in CI
-
-**Bootstrap / homelab / local dev:**
-1. **`op run`** for IaC and pre-cluster work — zero plaintext on disk, single source of truth
-2. **1Password Connect + ESO** for runtime secrets once the cluster is up
-3. **Ephemeral resources + write-only arguments** when the provider supports them
-4. **OpenTofu state encryption** (PBKDF2 works without a cloud KMS)
-5. **`sensitive = true`** on all secret variables and outputs to prevent log leakage
-
----
-
-## The CI/CD Pattern (For Homelab and Personal Projects)
-
-For production CI, your cloud provider's secret manager should be the source. But for homelab automation and personal projects running in GitHub Actions, 1Password service accounts keep things simple.
-
-I combine OIDC (for AWS auth) with 1Password service accounts (for application secrets):
-
-```yaml
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
-    steps:
-      - uses: actions/checkout@v4
-
-      # AWS auth via OIDC — no static credentials
-      - uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: arn:aws:iam::123456789:role/github-tf
-          aws-region: us-east-1
-
-      # Application secrets via 1Password
-      - uses: 1password/load-secrets-action@v3
-        with:
-          export-env: true
-        env:
-          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-          TF_VAR_db_password: op://Homelab/database/password
-          TF_VAR_cloudflare_api_token: op://Homelab/cloudflare/api-token
-
-      - run: |
-          tofu init
-          tofu apply -auto-approve -input=false
-```
-
-One static secret in the entire pipeline: the `OP_SERVICE_ACCOUNT_TOKEN`. Everything else is either OIDC-federated or resolved at runtime from 1Password.
-
-Create separate service accounts per environment. Scope each to minimum required vaults. Vault access is immutable after creation — changing scope means creating a new service account.
-
-One limitation worth knowing: 1Password doesn't support OIDC federation with GitHub Actions yet. The service account token is still a static credential you store as a GitHub secret. It's the one turtle at the bottom of the stack.
-
----
-
 ## Practical Setup: Getting Started in 10 Minutes
 
 If you want to try this today:
@@ -376,6 +239,8 @@ But for homelab and bootstrap contexts, 1Password plays a bigger role than most 
 
 The `.env` file is the bootstrap interface. Connect + ESO is the runtime interface. 1Password is the backend for both.
 
+But there are real gaps — state file leakage being the biggest. The good news is that 2025-2026 brought real solutions: ephemeral resources, write-only arguments, and OpenTofu state encryption. That's the next post.
+
 ---
 
-*This is the pattern I referenced in [Claude-Ops: The Next Step in the DevOps Evolution]({{< ref "posts/claude-ops-next-step-devops-evolution" >}}). If you're using Claude Code for infrastructure bootstrap work, this is how you keep secrets out of its context window while still letting it propose the command shapes. For production cloud secret management with ESO, that's a different post.*
+*This is the pattern I referenced in [Claude-Ops: The Next Step in the DevOps Evolution]({{< ref "posts/claude-ops-next-step-devops-evolution" >}}). Next up: [Closing the Gaps — Ephemeral Resources, State Encryption, and the Full Secrets Stack]({{< ref "posts/closing-the-gaps-iac-secrets" >}}).*
